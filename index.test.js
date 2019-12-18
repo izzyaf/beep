@@ -15,7 +15,8 @@ const table = [
     ['thuốc        lá', ['thuốc lá']],
     ['thuốc        lá.n i c o t i n', ['thuốc lá', 'nicotin']],
     ['thuốc lá, nicotin', ['thuốc lá', 'nicotin']],
-    ['cuối cùng thì vẫn bị dính cái từ đó có thuốc', []]
+    ['cuối cùng thì vẫn bị dính cái từ đó có thuốc', []],
+    ['trong bài viết về thuốc súng của tôi vào cuối thu có bom nổ chậm về con chim cu gáy', ['súng', 'nổ', 'bom', 'cu']]
 ]
 
 describe('Swear Detector', () => {

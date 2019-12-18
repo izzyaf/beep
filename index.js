@@ -1,9 +1,9 @@
 const symbol = [
-    '`', '~', '!', '@',  '#', '$',
-    '%', '^', '&', '*',  '(', ')',
-    '_', '-', '+', '=',  '{', '[',
+    '`', '~', '!', '@', '#', '$',
+    '%', '^', '&', '*', '(', ')',
+    '_', '-', '+', '=', '{', '[',
     '}', ']', '|', '\\', ';', ':',
-    "'", '"', '<', ',',  '>', '.',
+    "'", '"', '<', ',', '>', '.',
     '?', '/', ' '
 ]
 
@@ -21,15 +21,15 @@ module.exports = (string, dictionary = []) => {
             return `(\\s*${str})`
         }).join('')
 
-        const regex = new RegExp(regexWithMultipleSpaces)
+        const regex = new RegExp(regexWithMultipleSpaces, 'g')
 
-        const matches = regex.exec(string)
+        const matches = string.matchAll(regex)
 
-        if (matches !== null) {
-            const matchedWord = matches[0]
-            const startAt = matches.index
+        for (const match of matches) {
+            const matchedWord = match[0]
+            const start = match.index
 
-            const nearestChar = string[startAt + matchedWord.length]
+            const nearestChar = string[start + matchedWord.length]
 
             // end of string
             if (!nearestChar) {
@@ -38,7 +38,9 @@ module.exports = (string, dictionary = []) => {
 
             // if the nearest character is a symbol, consider it end of string
             // otherwise, it is part of a longer word
-            return symbol.includes(nearestChar)
+            if (symbol.includes(nearestChar)) {
+               return true
+            }
         }
 
         return false
