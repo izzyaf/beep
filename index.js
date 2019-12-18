@@ -39,7 +39,7 @@ module.exports = (string, dictionary = []) => {
             // if the nearest character is a symbol, consider it end of string
             // otherwise, it is part of a longer word
             if (symbol.includes(nearestChar)) {
-               return true
+                return true
             }
         }
 
