@@ -27,6 +27,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@leminhph'
       - run: yarn install
-      - run: npm publish
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
