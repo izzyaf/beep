@@ -23,9 +23,9 @@ module.exports = (string, dictionary = []) => {
 
         const regex = new RegExp(regexWithMultipleSpaces, 'g')
 
-        const matches = string.matchAll(regex)
+        let match
 
-        for (const match of matches) {
+        while ((match = regex.exec(string)) !== null) {
             const matchedWord = match[0]
             const start = match.index
 
