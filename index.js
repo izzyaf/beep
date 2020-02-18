@@ -29,6 +29,29 @@ module.exports = (string, dictionary = []) => {
             const matchedWord = match[0]
             const start = match.index
 
+            // go backward to check if matched word is part of another word
+            if (start > 0) {
+                let isPartOfWord;
+                let index = start;
+
+                // eslint-disable-next-line no-constant-condition
+                while (true) {
+                    const previousChar = string[index - 1];
+                    if (symbol.includes(previousChar)) {
+                        break;
+                    } else {
+                        isPartOfWord = true;
+                    }
+
+                    index -= 1;
+                }
+
+                if (isPartOfWord) {
+                    return false;
+                }
+            }
+
+            // go forward to check if matched word is part of another word
             const nearestChar = string[start + matchedWord.length]
 
             // end of string

@@ -12,11 +12,13 @@ const table = [
     ['thuốc lá,', ['thuốc lá']],
     ['thuốc lá.', ['thuốc lá']],
     ['th      uốc      l        á!', ['thuốc lá']],
+    ['  th      uốc      l        á!  ', ['thuốc lá']],
     ['thuốc        lá', ['thuốc lá']],
     ['thuốc        lá.n i c o t i n', ['thuốc lá', 'nicotin']],
     ['thuốc lá, nicotin', ['thuốc lá', 'nicotin']],
     ['cuối cùng thì vẫn bị dính cái từ đó có thuốc', []],
-    ['trong bài viết về thuốc súng của tôi vào cuối thu có bom nổ chậm về con chim cu gáy', ['súng', 'nổ', 'bom', 'cu']]
+    ['trong bài viết về thuốc súng của tôi vào cuối thu có bom nổ chậm về con chim cu gáy', ['súng', 'nổ', 'bom', 'cu']],
+    ['chúng tôi đang giám sát tình hình địa phương', []]
 ]
 
 describe('Swear Detector', () => {
@@ -26,4 +28,3 @@ describe('Swear Detector', () => {
         expect(actual).toMatchObject(expected)
     })
 })
-
